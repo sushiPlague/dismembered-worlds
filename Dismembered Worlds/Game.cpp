@@ -1,23 +1,26 @@
 #include "Game.h"
 
+Game* Game::instance = nullptr;
+Aoi* aoi = nullptr;
+
 Game::Game()
 {}
 
 Game::~Game()
 {}
 
-bool Game::init(const char* title, int width, int height)
+bool Game::init(const char* title)
 {
-	isInitialized = true;
+	bool isInitialized = true;
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		isInitialized = false;
 	}
 	else
 	{
-		gWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+		gWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
 		if (gWindow == NULL)
 		{
@@ -26,7 +29,10 @@ bool Game::init(const char* title, int width, int height)
 		}
 		else
 		{
-			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
+			SDL_Surface* gameIcon = IMG_Load("assets/icons/dismembered-worlds-icon.png");
+			SDL_SetWindowIcon(gWindow, gameIcon);
+
+			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 			if (gRenderer == NULL)
 			{
@@ -35,8 +41,6 @@ bool Game::init(const char* title, int width, int height)
 			}
 			else
 			{
-				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
 				int imgFlags = IMG_INIT_PNG;
 				if (!(IMG_Init(imgFlags) & imgFlags))
 				{
@@ -45,13 +49,10 @@ bool Game::init(const char* title, int width, int height)
 				}
 				else
 				{
-					grass = TextureManager::loadTexture(gRenderer, "assets/textures/grass.png");
+					TextureManager::getInstance()->loadTexture("aoi", "assets/sprite-sheets/aoi.png");
+					aoi = new Aoi(new Properties("aoi", 100, 100, 64, 64));
 
-					// temporary
-					entities.push_back(Entity(Vector2D(0, 0), grass));
-					entities.push_back(Entity(Vector2D(32, 0), grass));
-					entities.push_back(Entity(Vector2D(64, 0), grass));
-					entities.push_back(Entity(Vector2D(0, 32), grass));
+					isRunning = true;
 				}
 			}
 		}
@@ -62,71 +63,48 @@ bool Game::init(const char* title, int width, int height)
 
 void Game::handleEvents()
 {
-	bool isRunning = true;
-
 	SDL_Event event;
 
-	while (isRunning)
+	SDL_PollEvent(&event);
+	
+	switch (event.type)
 	{
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_QUIT)
-			{
-				isRunning = false;
-			}
-		}
-
-		clear();
-		
-		for (Entity& entity : entities)
-		{
-			render(entity);
-		}
-
-		update();
+	case SDL_QUIT:
+		isRunning = false;
+		break;
 	}
 }
 
-void Game::render(Entity& entity)
+void Game::render()
 {
-	SDL_Rect srcRect;
-	srcRect.x = entity.getCurrentFrame().x;
-	srcRect.y = entity.getCurrentFrame().y;
-	srcRect.w = entity.getCurrentFrame().w;
-	srcRect.h = entity.getCurrentFrame().h;
-
-	SDL_Rect dstRect;
-	dstRect.x = entity.getPos().x * 2;
-	dstRect.y = entity.getPos().y * 2;
-	dstRect.w = entity.getCurrentFrame().w * 2;
-	dstRect.h = entity.getCurrentFrame().h * 2;
-
-	SDL_RenderCopy(gRenderer, entity.getTexture(), &srcRect, &dstRect);
-}
-
-void Game::update()
-{
+	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(gRenderer);
+	aoi->draw();
 	SDL_RenderPresent(gRenderer);
 }
 
-void Game::clear()
+void Game::update(float dt)
 {
-	SDL_RenderClear(gRenderer);
+	aoi->update(0);
 }
 
 void Game::clean()
 {
-	// Destroy textures
-	SDL_DestroyTexture(grass);
-	grass = NULL;
-
 	//Destroy window    
 	SDL_DestroyRenderer(gRenderer);
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
 	gRenderer = NULL;
 
+	//Destroy textures
+	TextureManager::getInstance()->clean();
+
 	//Quit SDL subsystems
 	IMG_Quit();
 	SDL_Quit();
+}
+
+Game* Game::getInstance()
+{
+	return instance = (instance != nullptr) ? instance : new Game();
 }
