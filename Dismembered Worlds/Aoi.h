@@ -2,6 +2,8 @@
 
 #include "Character.h"
 #include "Animation.h"
+#include "RigidBody.h"
+#include "EventHandler.h"
 
 class Animation;
 
@@ -17,5 +19,6 @@ public:
 
 public:
 	Animation* animation;
+	RigidBody* rigidBody;
 };
 

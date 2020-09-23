@@ -144,25 +144,93 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Aoi.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapParser.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TileLayer.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Aoi.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="MapParser.h" />
     <ClInclude Include="ObjectInterface.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TileLayer.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\icons\dismembered-worlds-icon.png" />
-    <Image Include="assets\sprite-sheets\aoi.png" />
-    <Image Include="assets\textures\grass.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\0.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\00.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\1.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\2.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\3.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\4.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\5.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\6.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\7ForeGround.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\BlackLight.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\BlueLight.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\long-platforms.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\props.png" />
+    <Image Include="assets\map\tilesets\Cave Tileset\Tiles128x128.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0000_9.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0001_8.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0002_7.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0003_6.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0004_Lights.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0005_5.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0006_4.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0007_Lights.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0008_3.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0009_2.png" />
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0010_1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Background.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 clound anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 clound anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 2 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 2 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 clound anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 clound anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 4 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 4 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 5 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 5 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 6 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 6 anim2.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 7 anim1.png" />
+    <Image Include="assets\map\tilesets\Mountain Tileset\mountain_tileset.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Attack1.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Attack2.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Death.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Fall.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Idle.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Jump.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Run.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Take Hit - white silhouette.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Take Hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\map\dismembered-worlds-map.tmx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

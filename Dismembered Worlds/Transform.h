@@ -14,15 +14,15 @@ public:
 public:
 	float getX() { return x; }
 	float getY() { return y; }
+	void setX(float x) { this->x = x; }
+	void setY(float y) { this->y = y; }
 	void print(std::string message = "No message.")
 	{
 		printf("Transform Message: %s | x: %.2f, y:%.2f\n", message.c_str(), x, y);
 	}
-
-private:
 	inline void translateX(float x) { this->x += x; }
 	inline void translateY(float y) { this->y += y; }
-	inline void translate(Vector2D vector) 
+	inline void translate(Vector2D vector)
 	{
 		x += vector.getX();
 		y += vector.getY();

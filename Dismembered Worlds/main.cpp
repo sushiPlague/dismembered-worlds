@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Time.h"
 
 int main(int argc, char* args[])
 {
@@ -12,8 +13,9 @@ int main(int argc, char* args[])
         while (Game::getInstance()->running())
         {
             Game::getInstance()->handleEvents();
-            Game::getInstance()->update(1.1f);
+            Game::getInstance()->update();
             Game::getInstance()->render();
+            Time::getInstance()->tick();
         }
     }
 

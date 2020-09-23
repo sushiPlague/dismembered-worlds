@@ -30,6 +30,24 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -59,16 +77,196 @@
     <ClInclude Include="Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TileLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\textures\grass.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\sprite-sheets\aoi.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="assets\icons\dismembered-worlds-icon.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Attack1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Attack2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Death.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Fall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Idle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Jump.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Run.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Take Hit - white silhouette.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Take Hit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\long-platforms.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\props.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Tiles128x128.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\00.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\7ForeGround.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\BlackLight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\BlueLight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0000_9.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0001_8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0002_7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0003_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0004_Lights.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0005_5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0006_4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0007_Lights.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0008_3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0009_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Forest Tileset\Layer_0010_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 clound anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 1 clound anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 2 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 2 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 clound anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 3 clound anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 4 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 4 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 5 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 5 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 6 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 6 anim2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\Mountains\Layer 7 anim1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Mountain Tileset\mountain_tileset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\map\dismembered-worlds-map.tmx" />
   </ItemGroup>
 </Project>

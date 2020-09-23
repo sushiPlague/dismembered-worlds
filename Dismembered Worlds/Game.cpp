@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "MapParser.h"
 
 Game* Game::instance = nullptr;
 Aoi* aoi = nullptr;
@@ -20,7 +21,8 @@ bool Game::init(const char* title)
 	}
 	else
 	{
-		gWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI);
+		gWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, window_flags);
 
 		if (gWindow == NULL)
 		{
@@ -30,7 +32,15 @@ bool Game::init(const char* title)
 		else
 		{
 			SDL_Surface* gameIcon = IMG_Load("assets/icons/dismembered-worlds-icon.png");
-			SDL_SetWindowIcon(gWindow, gameIcon);
+			
+			if (gameIcon == NULL)
+			{
+				printf("Game icon could not be loaded! SDL_Error: %s\n", SDL_GetError());
+			}
+			else
+			{
+				SDL_SetWindowIcon(gWindow, gameIcon);
+			}
 
 			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -49,8 +59,17 @@ bool Game::init(const char* title)
 				}
 				else
 				{
-					TextureManager::getInstance()->loadTexture("aoi", "assets/sprite-sheets/aoi.png");
-					aoi = new Aoi(new Properties("aoi", 100, 100, 64, 64));
+					if (!MapParser::getInstance()->loadMap())
+					{
+						printf("Failed to load the map!\n");
+					}
+
+					map = MapParser::getInstance()->getMap("map0");
+
+					TextureManager::getInstance()->loadTexture("aoi_idle", "assets/sprite-sheets/Aoi/Idle.png");
+					TextureManager::getInstance()->loadTexture("aoi_run", "assets/sprite-sheets/Aoi/Run.png");
+
+					aoi = new Aoi(new Properties("aoi_idle", 100, 100, 200, 200));
 
 					isRunning = true;
 				}
@@ -63,29 +82,23 @@ bool Game::init(const char* title)
 
 void Game::handleEvents()
 {
-	SDL_Event event;
-
-	SDL_PollEvent(&event);
-	
-	switch (event.type)
-	{
-	case SDL_QUIT:
-		isRunning = false;
-		break;
-	}
+	EventHandler::getInstance()->listen();
 }
 
 void Game::render()
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(gRenderer);
+	map->render();
 	aoi->draw();
 	SDL_RenderPresent(gRenderer);
 }
 
-void Game::update(float dt)
-{
-	aoi->update(0);
+void Game::update()
+{	
+	float dt = Time::getInstance()->getDeltaTime();
+	map->update();
+	aoi->update(dt);
 }
 
 void Game::clean()
@@ -102,6 +115,11 @@ void Game::clean()
 	//Quit SDL subsystems
 	IMG_Quit();
 	SDL_Quit();
+}
+
+void Game::quit()
+{
+	isRunning = false;
 }
 
 Game* Game::getInstance()

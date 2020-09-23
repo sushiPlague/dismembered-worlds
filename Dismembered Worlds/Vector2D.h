@@ -11,6 +11,8 @@ public:
 public:
 	float getX() { return x; }
 	float getY() { return y; }
+	void setX(float x) { this->x = x; }
+	void setY(float y) { this->y = y; }
 	void print(std::string message = "No message.")
 	{
 		printf("Vector2D Message: %s | x: %.2f, y:%.2f\n", message.c_str(), x, y);
