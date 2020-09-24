@@ -47,3 +47,38 @@ void EventHandler::keyDown()
 {
 	keyStates = SDL_GetKeyboardState(nullptr);
 }
+
+int EventHandler::getAxisKey(Axis axis)
+{
+	switch (axis)
+	{
+	case HORIZONTAL:
+		if (isKeyDown(SDL_SCANCODE_D) || isKeyDown(SDL_SCANCODE_RIGHT))
+		{
+			return 1;
+		}
+
+		if (isKeyDown(SDL_SCANCODE_A) || isKeyDown(SDL_SCANCODE_LEFT))
+		{ 
+			return -1;
+		}
+
+		break;
+
+	case VERTICAL:
+		if (isKeyDown(SDL_SCANCODE_W) || isKeyDown(SDL_SCANCODE_UP))
+		{
+			return 1;
+		}
+
+		if (isKeyDown(SDL_SCANCODE_S) || isKeyDown(SDL_SCANCODE_DOWN))
+		{
+			return -1;
+		}
+
+		break;
+
+	default:
+		return 0;
+	}
+}

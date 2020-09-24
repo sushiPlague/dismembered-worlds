@@ -48,6 +48,15 @@
     <ClCompile Include="tinyxml2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -99,6 +108,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -265,8 +289,23 @@
     <Image Include="assets\map\tilesets\Mountain Tileset\mountain_tileset.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\map\tilesets\Backgrounds\mountain_bg_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\map\tilesets\Backgrounds\mountain_bg_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\jump_and_fall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\sprite-sheets\Aoi\Hit2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\map\dismembered-worlds-map.tmx" />
+    <None Include="assets\map\dismembered-worlds-map_0.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\textures.xml" />
   </ItemGroup>
 </Project>

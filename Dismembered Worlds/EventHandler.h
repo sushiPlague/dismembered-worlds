@@ -4,12 +4,18 @@
 
 #include "Game.h"
 
+enum Axis
+{
+	HORIZONTAL, VERTICAL
+};
+
 class EventHandler
 {
 public:
 	static EventHandler* getInstance();
 	void listen();
 	bool isKeyDown(SDL_Scancode key);
+	int getAxisKey(Axis axis);
 
 private:
 	EventHandler();

@@ -27,6 +27,7 @@ public:
 	void clean(); // Destroys entities and quits subsystems
 	void quit();
 	static Game* getInstance();
+	inline Map* getMap() { return map; }
 	inline bool running() { return isRunning; }
 	inline SDL_Renderer* getRenderer() { return gRenderer; }
 
@@ -39,5 +40,6 @@ private:
 	SDL_Renderer* gRenderer = NULL;
 	bool isRunning = false;
 	Map* map;
+	std::vector<GameObject*> gameObjects;
 };
 

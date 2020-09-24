@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<textures>
+    <texture id="aoi_idle" source="assets/sprite-sheets/Aoi/Idle.png"/>
+    <texture id="aoi_run" source="assets/sprite-sheets/Aoi/Run.png"/>
+    <texture id="aoi_jump" source="assets/sprite-sheets/Aoi/Jump.png"/>
+    <texture id="aoi_fall" source="assets/sprite-sheets/Aoi/Fall.png"/>
+    <texture id="aoi_attack" source="assets/sprite-sheets/Aoi/Attack2.png"/>
+    <texture id="aoi_hit" source="assets/sprite-sheets/Aoi/Hit2.png"/>
+    <texture id="aoi_dead" source="assets/sprite-sheets/Aoi/Death.png"/>
+
+    <texture id="skeleton_run" source="assets/sprite-sheets/Enemies/Skeleton/Walk.png"/>
+    <texture id="skeleton_idle" source="assets/sprite-sheets/Enemies/Skeleton/Idle.png"/>
+    <texture id="skeleton_attack" source="assets/sprite-sheets/Enemies/Skeleton/Attack.png"/>
+    <texture id="skeleton_hit" source="assets/sprite-sheets/Enemies/Skeleton/Take Hit.png"/>
+    <texture id="skeleton_dead" source="assets/sprite-sheets/Enemies/Skeleton/Death.png"/>
+  
+    <texture id="goblin_idle" source="assets/sprite-sheets/Enemies/Goblin/Idle.png"/>
+    <texture id="goblin_run" source="assets/sprite-sheets/Enemies/Goblin/Run.png"/>
+    <texture id="goblin_attack" source="assets/sprite-sheets/Enemies/Goblin/Attack.png"/>
+    <texture id="goblin_hit" source="assets/sprite-sheets/Enemies/Goblin/Take Hit.png"/>
+    <texture id="goblin_dead" source="assets/sprite-sheets/Enemies/Goblin/Death.png"/>
+
+    <texture id="eye_run" source="assets/sprite-sheets/Enemies/Flying eye/Flight.png"/>
+    <texture id="eye_attack" source="assets/sprite-sheets/Enemies/Flying eye/Attack.png"/>
+    <texture id="eye_hit" source="assets/sprite-sheets/Enemies/Flying eye/Take Hit.png"/>
+    <texture id="eye_dead" source="assets/sprite-sheets/Enemies/Flying eye/Death.png"/>
+
+    <texture id="shroom_idle" source="assets/sprite-sheets/Enemies/Mushroom/Idle.png"/>
+    <texture id="shroom_run" source="assets/sprite-sheets/Enemies/Mushroom/Run.png"/>
+    <texture id="shroom_attack" source="assets/sprite-sheets/Enemies/Mushroom/Attack.png"/>
+    <texture id="shroom_hit" source="assets/sprite-sheets/Enemies/Mushroom/Take Hit.png"/>
+    <texture id="shroom_dead" source="assets/sprite-sheets/Enemies/Mushroom/Death.png"/>
+
+    <texture id="background" source="assets/map/tilesets/Backgrounds/mountain_bg_0.png"/>
+</textures>

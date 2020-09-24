@@ -11,9 +11,9 @@ public:
 	Animation();
 
 public:
-	void draw(float x, float y, int spriteWidth, int spriteHeight);
+	void draw(float x, float y, int spriteWidth, int spriteHeight, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void update();
-	void setProperties(std::string textureID, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void setProperties(std::string textureID, int spriteRow, int frameCount, int animationSpeed);
 
 private:
 	int spriteRow;
@@ -21,6 +21,5 @@ private:
 	int animationSpeed;
 	int frameCount;
 	std::string textureID;
-	SDL_RendererFlip flip;
 };
 

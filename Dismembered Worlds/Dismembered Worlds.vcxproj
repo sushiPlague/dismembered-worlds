@@ -144,6 +144,9 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Aoi.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -157,7 +160,11 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Aoi.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -165,6 +172,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapParser.h" />
     <ClInclude Include="ObjectInterface.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TileLayer.h" />
@@ -175,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\icons\dismembered-worlds-icon.png" />
+    <Image Include="assets\map\tilesets\Backgrounds\mountain_bg_0.png" />
+    <Image Include="assets\map\tilesets\Backgrounds\mountain_bg_1.png" />
     <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\0.png" />
     <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\00.png" />
     <Image Include="assets\map\tilesets\Cave Tileset\Background Layers\1.png" />
@@ -223,14 +233,19 @@
     <Image Include="assets\sprite-sheets\Aoi\Attack2.png" />
     <Image Include="assets\sprite-sheets\Aoi\Death.png" />
     <Image Include="assets\sprite-sheets\Aoi\Fall.png" />
+    <Image Include="assets\sprite-sheets\Aoi\Hit2.png" />
     <Image Include="assets\sprite-sheets\Aoi\Idle.png" />
     <Image Include="assets\sprite-sheets\Aoi\Jump.png" />
+    <Image Include="assets\sprite-sheets\Aoi\jump_and_fall.png" />
     <Image Include="assets\sprite-sheets\Aoi\Run.png" />
     <Image Include="assets\sprite-sheets\Aoi\Take Hit - white silhouette.png" />
     <Image Include="assets\sprite-sheets\Aoi\Take Hit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\map\dismembered-worlds-map.tmx" />
+    <None Include="assets\map\dismembered-worlds-map_0.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\textures.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

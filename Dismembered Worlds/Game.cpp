@@ -1,8 +1,9 @@
 #include "Game.h"
 #include "MapParser.h"
+#include "Camera.h"
+#include "Enemy.h"
 
 Game* Game::instance = nullptr;
-Aoi* aoi = nullptr;
 
 Game::Game()
 {}
@@ -14,7 +15,7 @@ bool Game::init(const char* title)
 {
 	bool isInitialized = true;
 
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		isInitialized = false;
@@ -66,10 +67,15 @@ bool Game::init(const char* title)
 
 					map = MapParser::getInstance()->getMap("map0");
 
-					TextureManager::getInstance()->loadTexture("aoi_idle", "assets/sprite-sheets/Aoi/Idle.png");
-					TextureManager::getInstance()->loadTexture("aoi_run", "assets/sprite-sheets/Aoi/Run.png");
+					TextureManager::getInstance()->parseTextures("assets/textures.xml");
 
-					aoi = new Aoi(new Properties("aoi_idle", 100, 100, 200, 200));
+					Aoi* aoi = new Aoi(new Properties("aoi_idle", 100, 350, 200, 200));
+					//Enemy* skeleton = new Enemy("skeleton", new Properties("skeleton_idle", 300, 350, 200, 200));
+
+					gameObjects.push_back(aoi);
+					//gameObjects.push_back(skeleton);
+
+					Camera::getInstance()->setTarget(aoi->getOrigin());
 
 					isRunning = true;
 				}
@@ -89,8 +95,14 @@ void Game::render()
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(gRenderer);
+	TextureManager::getInstance()->draw("background", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 1.37, 1.37, 0.4);
 	map->render();
-	aoi->draw();
+	
+	for (auto& gameObject : gameObjects)
+	{
+		gameObject->draw();
+	}
+
 	SDL_RenderPresent(gRenderer);
 }
 
@@ -98,7 +110,13 @@ void Game::update()
 {	
 	float dt = Time::getInstance()->getDeltaTime();
 	map->update();
-	aoi->update(dt);
+	
+	for (auto& gameObject : gameObjects)
+	{
+		gameObject->update(dt);
+	}
+
+	Camera::getInstance()->update(dt);
 }
 
 void Game::clean()
@@ -108,6 +126,12 @@ void Game::clean()
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
 	gRenderer = NULL;
+
+	//Destroy game objects
+	for (auto& gameObject : gameObjects)
+	{
+		gameObject->clean();
+	}
 
 	//Destroy textures
 	TextureManager::getInstance()->clean();
