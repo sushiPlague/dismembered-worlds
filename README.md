@@ -1,6 +1,5 @@
-# dismembered-worlds
-
 ### Dismembered Worlds is not finished!
+(<i>Enemies disabled due to certain implementation issues</i>)
 
 ## What's Dismembered Worlds? :japanese_ogre:
 <b>Dismembered Worlds</b> is a platformer where the main protagonist (Aoi) embarks on a quest to reunite the previously dismembered worlds.
